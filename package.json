@@ -1,0 +1,41 @@
+{
+  "name": "sgt-markdown-editor",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@uiw/react-md-editor": "^4.0.4",
+    "react": "^18.2.0",
+    "react-cookie": "^7.1.4",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "rehype-sanitize": "^6.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && wrangler pages deploy ./build",
+    "preview": "npm run build && wrangler pages dev ./build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "wrangler": "^3.48.0"
+  }
+}

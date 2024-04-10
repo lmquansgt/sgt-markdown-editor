@@ -1,0 +1,10 @@
+body .w-md-editor-text-pre > code,
+body .w-md-editor-text-input {
+    font-size: 1.5rem !important;
+    line-height: 1.5rem !important;
+}
+
+body .w-md-editor-toolbar svg {
+    width: 24px !important;
+    height: 24px !important;
+}
