@@ -1,5 +1,6 @@
 import MDEditor from '@uiw/react-md-editor';
 import 'assets/css/App.css';
+import { template } from 'config/default';
 import { useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import rehypeSanitize from 'rehype-sanitize';
@@ -9,9 +10,13 @@ const closings = [']', '}', ')', '>', "'", '"', '`'];
 
 export default function Editor() {
     const [cookies, setCookies] = useCookies();
-    const content = cookies.sgtMarkdownData
-        ? decodeURIComponent(cookies.sgtMarkdownData)
-        : '';
+    let content = '';
+    if (cookies.sgtMarkdownData) {
+        content = decodeURIComponent(cookies.sgtMarkdownData);
+    }
+    if (content === '') {
+        content = template;
+    }
     const [value, setValue] = useState(content);
     const [autoFilled, setAutoFilled] = useState(false);
     const [cursor, setCursor] = useState(0);
@@ -80,9 +85,11 @@ export default function Editor() {
                     ref={editorRef}
                     onKeyUp={handlePairing}
                     value={value}
+                    height="100%"
                     fullscreen={true}
                     onChange={setValue}
                     previewOptions={{ rehypePlugins: [[rehypeSanitize]] }}
+                    extraCommands={[]}
                 />
             </div>
             {shouldRemindSlug && (

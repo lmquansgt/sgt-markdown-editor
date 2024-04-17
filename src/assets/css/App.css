@@ -1,7 +1,7 @@
 body .w-md-editor-text-pre > code,
 body .w-md-editor-text-input {
-    font-size: 1.5rem !important;
-    line-height: 1.5rem !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
 }
 
 body .w-md-editor-toolbar svg {
@@ -11,6 +11,10 @@ body .w-md-editor-toolbar svg {
 
 .w-md-editor-toolbar li > button {
     height: 32px !important;
+}
+
+.w-md-editor-text {
+    height: max(100%, max-content);
 }
 
 .notif {
