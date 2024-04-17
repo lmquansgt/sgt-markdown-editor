@@ -1,9 +1,3 @@
-body .w-md-editor-text-pre > code,
-body .w-md-editor-text-input {
-    font-size: 16px !important;
-    line-height: 24px !important;
-}
-
 body .w-md-editor-toolbar svg {
     width: 24px !important;
     height: 24px !important;
@@ -13,20 +7,39 @@ body .w-md-editor-toolbar svg {
     height: 32px !important;
 }
 
-.w-md-editor-text {
-    height: max(100%, max-content);
-}
-
 .notif {
     position: fixed;
-    bottom: 6px;
-    right: 6px;
-    width: max-content;
-    padding: 0 2em;
-    border-radius: 6px;
-    background-color: red;
-    color: white;
-    text-align: center;
-    font-weight: bold;
+    top: 6px;
+    right: 72px;
     z-index: 100000;
+}
+
+.notif span {
+    color: red;
+    font-weight: bold;
+}
+
+#popup-root > * {
+    z-index: 100000 !important;
+}
+
+.notif-trigger {
+    border: none;
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.notif-message {
+    padding: 0 0.5em;
+}
+
+.notif-hint {
+    color: red;
+}
+
+button[data-name='warning'] + .w-md-editor-toolbar-child.active {
+    top: 56px;
+    right: 6px;
 }

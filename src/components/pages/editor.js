@@ -1,5 +1,6 @@
-import MDEditor from '@uiw/react-md-editor';
+import MDEditor, { commands } from '@uiw/react-md-editor';
 import 'assets/css/App.css';
+import { Instruction, Warning } from 'components/organisms/warning';
 import { template } from 'config/default';
 import { useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -41,7 +42,6 @@ export default function Editor() {
     }, [value, setCookies]);
 
     const handlePairing = (e) => {
-        console.log(e);
         const { keyCode, key, type } = e;
         const isInput =
             keyCode !== 8 &&
@@ -86,21 +86,22 @@ export default function Editor() {
                     onKeyUp={handlePairing}
                     value={value}
                     height="100%"
+                    minHeight={'100%'}
                     fullscreen={true}
                     onChange={setValue}
                     previewOptions={{ rehypePlugins: [[rehypeSanitize]] }}
-                    extraCommands={[]}
+                    extraCommands={[
+                        shouldRemindSlug &&
+                            commands.group([], {
+                                name: 'warning',
+                                groupName: 'Warning',
+                                icon: <Warning />,
+                                children: Instruction,
+                                buttonProps: { 'aria-label': 'Show details' },
+                            }),
+                    ]}
                 />
             </div>
-            {shouldRemindSlug && (
-                <div className="notif">
-                    <p>You're missing some headings!</p>
-                    <p>Remember to includes necessary metadata!</p>
-                    <p>Example:</p>
-                    <p>name: Quynh Nguyen</p>
-                    <p>slug: quynh-nguyen</p>
-                </div>
-            )}
         </>
     );
 }
