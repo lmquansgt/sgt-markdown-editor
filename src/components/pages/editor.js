@@ -83,12 +83,13 @@ export default function Editor() {
             <div className="container" data-color-mode="light">
                 <MDEditor
                     ref={editorRef}
-                    onKeyUp={handlePairing}
                     value={value}
+                    onKeyUp={handlePairing}
+                    onChange={setValue}
                     height="100%"
                     minHeight={'100%'}
+                    highlightEnable={false}
                     fullscreen={true}
-                    onChange={setValue}
                     previewOptions={{ rehypePlugins: [[rehypeSanitize]] }}
                     extraCommands={[
                         shouldRemindSlug &&
