@@ -2,6 +2,7 @@ import MDEditor, { commands } from '@uiw/react-md-editor';
 import 'assets/css/App.css';
 import { Instruction, Warning } from 'components/organisms/warning';
 import { template } from 'config/default';
+import linesToCheck from 'config/headings';
 import { useEffect, useRef, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import rehypeSanitize from 'rehype-sanitize';
@@ -23,7 +24,6 @@ export default function Editor() {
     const [cursor, setCursor] = useState(0);
     const editorRef = useRef(null);
 
-    const linesToCheck = ['name:', 'slug:'];
     const shouldRemindSlug = !linesToCheck.every((line) =>
         value.includes(line),
     );

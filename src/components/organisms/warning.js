@@ -23,11 +23,33 @@ export const Instruction = () => (
     <p className="notif-message">
         Remember to includes necessary metadata!
         <br />
-        Example:
+        Title
         <br />
-        name: Quynh Nguyen
+        Date
         <br />
-        slug: quynh-nguyen
+        Author
+        <br />
+        Author_slug
+        <br />
+        Author_image
+        <br />
+        Author_description
+        <br />
+        Category
+        <br />
+        Breadcrumb
+        <br />
+        Slug
+        <br />
+        Tags
+        <br />
+        breadcrumb_children
+        <br />
+        breadcrumb_url
+        <br />
+        description
+        <br />
+        thumbnail
         <br />
     </p>
 );
